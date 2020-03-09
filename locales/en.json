@@ -1,14 +1,19 @@
 {
-    "link": "time Link",
+    "link": "Time Link",
     "listing": {
         "title": "Time",
-        "timezone": "Time Zone"
+        "timezone": "Time Zone",
+        "networktime_status": "Network Time",
+        "networktime_server": "Network Time Servers"
     },
     "report": {
         "title": "Time Report"
     },
     "title": "Time",
-    "widget": {
-        "title": "Time Widget"
+    "networktime_widget": {
+        "title": "Using Network Time"
+    },
+    "timezone_widget": {
+        "title": "Time Zone"
     }
 }

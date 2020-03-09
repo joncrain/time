@@ -30,6 +30,8 @@ class Time_controller extends Module_controller
         }
         $columns = [
             'timezone',
+            'networktime_status',
+            'networktime_server',
         ];
 
         $out = time_model::select($columns)
@@ -53,6 +55,19 @@ class Time_controller extends Module_controller
             ->toArray();
 
         $obj->view('json', array('msg' => $out));
-}
+    }
+
+    public function get_netlist()
+    {
+        $obj = new View();
+        $out = time_model::selectRaw('networktime_status, count(*) AS count')
+            ->filter()
+            ->groupBy('networktime_status')
+            ->orderBy('count', 'desc')
+            ->get()
+            ->toArray();
+
+        $obj->view('json', array('msg' => $out));
+    }
 
 } // END class time_controller

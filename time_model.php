@@ -9,6 +9,8 @@ class Time_model extends Eloquent
     protected $fillable = [
       'serial_number',
       'timezone',
+      'networktime_status',
+      'networktime_server',
     ];
 
     public $timestamps = false;

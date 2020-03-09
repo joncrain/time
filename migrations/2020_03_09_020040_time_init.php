@@ -12,7 +12,12 @@ class TimeInit extends Migration
             $table->increments('id');
             $table->string('serial_number')->unique();
             $table->string('timezone');
+            $table->boolean('networktime_status');
+            $table->text('networktime_server');
+
             $table->index('timezone');
+            $table->index('networktime_status');
+            $table->index('networktime_server');
         });
     }
     

@@ -8,7 +8,8 @@
 
     <div class="row">
 
-        <?php $widget->view($this, 'time'); ?>
+    <?php $widget->view($this, 'timezone'); ?>
+    <?php $widget->view($this, 'networktime'); ?>
 
     </div> <!-- /row -->
 

@@ -4,7 +4,7 @@
 
         <div class="panel-heading" data-container="body" >
 
-            <h3 class="panel-title"><i class="fa fa-cog"></i> <span data-i18n="time.widget.title"></span></h3>
+            <h3 class="panel-title"><i class="fa fa-cog"></i> <span data-i18n="time.timezone_widget.title"></span></h3>
 
         </div>
 
