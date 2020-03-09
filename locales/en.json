@@ -1,0 +1,14 @@
+{
+    "link": "time Link",
+    "listing": {
+        "title": "Time",
+        "timezone": "Time Zone"
+    },
+    "report": {
+        "title": "Time Report"
+    },
+    "title": "Time",
+    "widget": {
+        "title": "Time Widget"
+    }
+}
