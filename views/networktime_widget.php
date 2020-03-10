@@ -4,7 +4,7 @@
 
         <div class="panel-heading" data-container="body" >
 
-            <h3 class="panel-title"><i class="fa fa-cog"></i> <span data-i18n="time.networktime_widget.title"></span></h3>
+            <h3 class="panel-title"><i class="fa fa-clock-o"></i> <span data-i18n="time.networktime_widget.title"></span></h3>
 
         </div>
 
@@ -27,7 +27,10 @@ $(document).on('appUpdate', function(e, lang) {
         if(data.length){
             $.each(data, function(i,d){
                 var badge = '<span class="badge pull-right">'+d.count+'</span>';
-                box.append('<a href="'+appUrl+'/show/listing/time/time/#'+d.networktime_status+'" class="list-group-item">'+d.networktime_status+badge+'</a>')
+                var status=d.networktime_status
+                status = status == 1 ? i18n.t('yes') :
+                (status == 0 && status != '' ? i18n.t('no') : '')
+                box.append('<a href="'+appUrl+'/show/listing/time/time/" class="list-group-item">'+status+badge+'</a>')
             });
         }
         else{

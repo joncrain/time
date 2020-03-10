@@ -10,6 +10,10 @@
 
     <?php $widget->view($this, 'timezone'); ?>
     <?php $widget->view($this, 'networktime'); ?>
+    <?php $widget->view($this, 'autotimezone'); ?>
+    <?php $widget->view($this, 'timezone_graph'); ?>
+    <?php $widget->view($this, 'networktime_graph'); ?>
+    <?php $widget->view($this, 'autotimezone_graph'); ?>
 
     </div> <!-- /row -->
 

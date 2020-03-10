@@ -11,6 +11,9 @@
         "title": "Time Report"
     },
     "title": "Time",
+    "autotimezone_widget": {
+        "title": "Using Automatic Time Zone"
+    },
     "networktime_widget": {
         "title": "Using Network Time"
     },

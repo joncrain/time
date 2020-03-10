@@ -9,7 +9,11 @@ return [
     ],
     'widgets' => [
         'timezone' => ['view' => 'timezone_widget'],
+        'timezone_graph' => ['view' => 'timezone_graph_widget'],
         'networktime' => ['view' => 'networktime_widget'],
+        'networktime_graph' => ['view' => 'networktime_graph_widget'],
+        'autotimezone' => ['view' => 'autotimezone_widget'],
+        'autotimezone_graph' => ['view' => 'autotimezone_graph_widget'],
     ],
     'reports' => [
         'time' => ['view' => 'time_report', 'i18n' => 'time.report.title'],

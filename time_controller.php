@@ -71,4 +71,18 @@ class Time_controller extends Module_controller
         $obj->view('json', array('msg' => $out));
     }
 
+    public function get_autolist()
+    {
+        $obj = new View();
+        $out = time_model::selectRaw('autotimezone, count(*) AS count')
+            ->filter()
+            ->groupBy('autotimezone')
+            ->orderBy('count', 'desc')
+            ->get()
+            ->toArray();
+
+        $obj->view('json', array('msg' => $out));
+    }
+
+
 } // END class time_controller
