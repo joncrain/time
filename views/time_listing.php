@@ -21,10 +21,12 @@ $this->view('listings/default',
 		[
 			"column" => "time.autotimezone",
 			"i18n_header" => "time.listing.autotimezone",
+			"formatter" => "binaryYesNo",
 		],
 		[
 			"column" => "time.networktime_status",
 			"i18n_header" => "time.listing.networktime_status",
+			"formatter" => "binaryYesNo",
 		],
 		[
 			"column" => "time.networktime_server",

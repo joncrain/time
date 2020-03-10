@@ -24,8 +24,17 @@
 $(document).on('appReady', function(){
     $.getJSON(appUrl + '/module/time/get_data/' + serialNumber, function(data){
         $('#timezone').text(data['timezone'])
-        $('#autotimezone').text(data['autotimezone'])
-        $('#networktime_status').text(data['networktime_status'])
+        
+        var status=data['autotimezone']
+        status = status == 1 ? i18n.t('yes') :
+	    (status == 0 && status != '' ? i18n.t('no') : '')
+        $('#autotimezone').text(status)
+
+        var status=data['networktime_status']
+        status = status == 1 ? i18n.t('yes') :
+	    (status == 0 && status != '' ? i18n.t('no') : '')
+        $('#networktime_status').text(status)
+
         $('#networktime_server').text(data['networktime_server'])
     });
 });
