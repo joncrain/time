@@ -19,7 +19,6 @@ mkdir -p "${CACHEDIR}"
 
 # Business logic goes here
 timezone=$(/usr/sbin/systemsetup -gettimezone | awk '{print $NF}')
-#networktime_status=$(/usr/sbin/systemsetup -getusingnetworktime | awk '{print $NF}')
 if [ "$(systemsetup -getusingnetworktime | grep On)" ]; then
 	networktime_status=1
 else
