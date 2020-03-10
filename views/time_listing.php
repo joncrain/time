@@ -19,6 +19,10 @@ $this->view('listings/default',
 			"i18n_header" => "time.listing.timezone",
 		],
 		[
+			"column" => "time.autotimezone",
+			"i18n_header" => "time.listing.autotimezone",
+		],
+		[
 			"column" => "time.networktime_status",
 			"i18n_header" => "time.listing.networktime_status",
 		],

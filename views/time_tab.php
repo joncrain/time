@@ -2,9 +2,13 @@
 <h2 data-i18n="time.title"></h2>
 
 <table>
-    <tr>
+<tr>
         <th data-i18n="time.listing.timezone">></th>
         <td id="timezone"></td>
+    </tr>
+    <tr>
+        <th data-i18n="time.listing.autotimezone">></th>
+        <td id="autotimezone"></td>
     </tr>
     <tr>
         <th data-i18n="time.listing.networktime_status">></th>
@@ -20,6 +24,7 @@
 $(document).on('appReady', function(){
     $.getJSON(appUrl + '/module/time/get_data/' + serialNumber, function(data){
         $('#timezone').text(data['timezone'])
+        $('#autotimezone').text(data['autotimezone'])
         $('#networktime_status').text(data['networktime_status'])
         $('#networktime_server').text(data['networktime_server'])
     });
