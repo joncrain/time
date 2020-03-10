@@ -32,6 +32,7 @@ class Time_controller extends Module_controller
             'timezone',
             'networktime_status',
             'networktime_server',
+            'autotimezone',
         ];
 
         $out = time_model::select($columns)

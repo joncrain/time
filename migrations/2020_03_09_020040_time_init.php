@@ -14,10 +14,10 @@ class TimeInit extends Migration
             $table->string('timezone');
             $table->boolean('networktime_status');
             $table->text('networktime_server');
+            $table->boolean('autotimezone');
 
             $table->index('timezone');
             $table->index('networktime_status');
-            $table->index('networktime_server');
         });
     }
     

@@ -4,7 +4,8 @@
         "title": "Time",
         "timezone": "Time Zone",
         "networktime_status": "Network Time",
-        "networktime_server": "Network Time Servers"
+        "networktime_server": "Network Time Servers",
+        "autotimezone": "Auto Time Zone"
     },
     "report": {
         "title": "Time Report"

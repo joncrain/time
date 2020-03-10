@@ -11,6 +11,7 @@ class Time_model extends Eloquent
       'timezone',
       'networktime_status',
       'networktime_server',
+      'autotimezone'
     ];
 
     public $timestamps = false;

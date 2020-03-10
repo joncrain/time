@@ -19,10 +19,18 @@ mkdir -p "${CACHEDIR}"
 
 # Business logic goes here
 timezone=$(/usr/sbin/systemsetup -gettimezone | awk '{print $NF}')
-networktime_status=$(/usr/sbin/systemsetup -getusingnetworktime | awk '{print $NF}')
+if [ "$(systemsetup -getusingnetworktime | grep On)" ]; then
+	networktime_status=1
+else
+	networktime_status=0
+fi
 networktime_server=$(cat /etc/ntp.conf | awk '{print $NF", " }' | tr -d '\n')
 networktime_server=${networktime_server%?}
+autotimezone=$(defaults read /Library/Preferences/com.apple.timezone.auto.plist Active)
 # Output data here
 echo "timezone${SEPARATOR}${timezone}" > ${OUTPUT_FILE}
 echo "networktime_status${SEPARATOR}$networktime_status" >> ${OUTPUT_FILE}
 echo "networktime_server${SEPARATOR}${networktime_server%?}" >> ${OUTPUT_FILE}
+echo "autotimezone${SEPARATOR}${autotimezone}" >> ${OUTPUT_FILE}
+
+
