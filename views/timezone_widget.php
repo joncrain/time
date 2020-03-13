@@ -27,7 +27,7 @@ $(document).on('appUpdate', function(e, lang) {
         if(data.length){
             $.each(data, function(i,d){
                 var badge = '<span class="badge pull-right">'+d.count+'</span>';
-                box.append('<a href="'+appUrl+'/show/listing/time/time/#'+d.timezone+'" class="list-group-item">'+d.timezone+badge+'</a>')
+                box.append('<a href="'+appUrl+'/show/listing/time/time/#'+d.label+'" class="list-group-item">'+d.label+badge+'</a>')
             });
         }
         else{

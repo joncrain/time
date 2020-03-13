@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-6">
 
 <div class="panel panel-default" id="timezone_graph-widget">
 
@@ -13,9 +13,9 @@
 
     <div class="panel-body">
 
-<svg style="width:100%; height: 300px"></svg>
+        <svg style="width:100%"></svg>
 
-</div>
+    </div>
 
 </div><!-- /panel -->
 
@@ -24,34 +24,22 @@
 <script>
 $(document).on('appReady', function(e, lang) {
 
-    var widget = 'timezone_graph-widget' // Widget id
-    var svg = '#' + widget + ' svg';
-    var chart;
+	var conf = {
+        
+		url: appUrl + '/module/time/get_list', // Url for json
+		widget: 'timezone_graph-widget', // Widget id
+        margin: {top: 20, right: 10, bottom: 20, left: 100},
+		elementClickCallback: function(e){
+			var label = e.data.timezone;
+			window.location.href = appUrl + '/show/listing/time/time#' + label ;
+		},
+		labelModifier: function(label){
+			return label
+		}
+	};
 
-    var drawGraph = function(){
-        var url = appUrl + '/module/time/get_list' // Url for json
-        d3.json(url, function(data) {
-            nv.addGraph(function() {
-                var chart = nv.models.pieChart()
-                    .x(function(d) { return d.timezone })
-                    .y(function(d) { return d.count })
-                    .showLegend(true)
-                    .showLabels(false);
-            d3.select(svg)
-                .datum(data)
-                .transition().duration(1200)
-                .call(chart);
+	mr.addGraph(conf);
 
-            chart.tooltip.valueFormatter(function(d){return d});
-            chart.update();
-
-            });
-        });
-    };
-
-    drawGraph();
-
-    $(document).on('appUpdate', function(){drawGraph()});
 
     });
 </script>

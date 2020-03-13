@@ -48,7 +48,7 @@ class Time_controller extends Module_controller
     public function get_list()
     {
         $obj = new View();
-        $out = time_model::selectRaw('timezone, count(*) AS count')
+        $out = time_model::selectRaw('timezone AS label, count(*) AS count')
             ->filter()
             ->groupBy('timezone')
             ->orderBy('count', 'desc')
