@@ -3,19 +3,19 @@
 
 <table style="width: 550px;">
 <tr>
-        <th data-i18n="time.listing.timezone">></th>
+        <th data-i18n="time.listing.timezone"></th>
         <td id="timezone"></td>
     </tr>
     <tr>
-        <th data-i18n="time.listing.autotimezone">></th>
+        <th data-i18n="time.listing.autotimezone"></th>
         <td id="autotimezone"></td>
     </tr>
     <tr>
-        <th data-i18n="time.listing.networktime_status">></th>
+        <th data-i18n="time.listing.networktime_status"></th>
         <td id="networktime_status"></td>
     </tr>
     <tr>
-        <th data-i18n="time.listing.networktime_server">></th>
+        <th data-i18n="time.listing.networktime_server"></th>
         <td id="networktime_server"></td>
     </tr>
 </table>
