@@ -19,8 +19,6 @@ class TimeInit extends Migration
             $table->unique('serial_number');
             $table->index('timezone');
             $table->index('networktime_status');
-            $table->index('networktime_server');
-            $table->index('autotimezone');
 
         });
     }
