@@ -10,14 +10,18 @@ class TimeInit extends Migration
         $capsule = new Capsule();
         $capsule::schema()->create('time', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('serial_number')->unique();
-            $table->string('timezone');
-            $table->boolean('networktime_status');
-            $table->text('networktime_server');
-            $table->boolean('autotimezone');
+            $table->string('serial_number');
+            $table->string('timezone')->nullable();
+            $table->boolean('networktime_status')->nullable();
+            $table->string('networktime_server')->nullable();
+            $table->boolean('autotimezone')->nullable();
 
+            $table->unique('serial_number');
             $table->index('timezone');
             $table->index('networktime_status');
+            $table->index('networktime_server');
+            $table->index('autotimezone');
+
         });
     }
     

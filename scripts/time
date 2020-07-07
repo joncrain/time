@@ -1,0 +1,55 @@
+#!/usr/bin/python
+
+import subprocess
+import os
+import sys
+import platform
+sys.path.insert(0, '/usr/local/munki')
+sys.path.insert(0, '/usr/local/munkireport')
+from Foundation import CFPreferencesCopyAppValue
+from munkilib import FoundationPlist
+
+def get_pref_value(key, domain):
+    value = CFPreferencesCopyAppValue(key, domain)
+    if(value is not None):
+        return value
+    elif(value is not None and len(value) == 0):
+        return ""
+    else:
+        return ""
+
+def systemsetup(command):
+    cmd = ["/usr/sbin/systemsetup", "-%s" % command ] 
+    output = subprocess.check_output(cmd) 
+    output = output.split(':')
+    setting = output[1].strip()
+    return setting
+
+def main():
+    """Main"""
+    # Create cache dir if it does not exist
+    cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
+    if not os.path.exists(cachedir):
+        os.makedirs(cachedir)
+    separator = "="
+
+    timezone = systemsetup('gettimezone')
+    networktime_status = bool(systemsetup('getusingnetworktime'))
+    networktime_server = []
+    with open('/etc/ntp.conf', 'r') as reader:
+        for line in reader.readlines():
+            networktime_server.append(line.split()[1])
+    networktime_server = (', '.join(networktime_server))
+    autotimezone = bool(get_pref_value('Active', 'com.apple.timezone.auto'))
+
+    # Write memory results to cache
+    output_file = os.path.join(cachedir, 'time.txt')
+    f = open(output_file, "w")
+    f.write("timezone %s %s\n" % (separator, timezone))
+    f.write("networktime_status %s %s\n" % (separator, int(networktime_status)))
+    f.write("networktime_server %s %s\n" % (separator, networktime_server))
+    f.write("autotimezone %s %s\n" % (separator, int(autotimezone)))
+    f.close()
+    
+if __name__ == "__main__":
+    main()

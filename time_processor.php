@@ -17,7 +17,7 @@ class Time_processor extends Processor
             }
 		} //end foreach explode lines
 
-        time_model::updateOrCreate(
+        Time_model::updateOrCreate(
             ['serial_number' => $this->serial_number], $modelData
         );
         

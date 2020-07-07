@@ -1,23 +1,22 @@
 {
     "link": "Time Link",
-    "listing": {
-        "title": "Time",
+    "column": {
         "timezone": "Time Zone",
         "networktime_status": "Network Time",
         "networktime_server": "Network Time Servers",
         "autotimezone": "Auto Time Zone"
     },
+    "listing": {
+        "title": "Time"
+    },
     "report": {
         "title": "Time Report"
     },
     "title": "Time",
-    "autotimezone_widget": {
-        "title": "Using Automatic Time Zone"
-    },
-    "networktime_widget": {
-        "title": "Using Network Time"
-    },
-    "timezone_widget": {
-        "title": "Time Zone"
+    "widget": {
+        "timezone_title": "Time Zone",
+        "networktime_status_title": "Using Network Time",
+        "networktime_server_title": "Network Time Servers",
+        "autotimezone_title": "Using Automatic Time Zone"
     }
 }

@@ -1,0 +1,13 @@
+type: button
+widget_id: time-networktime_status-button-widget
+api_url: /module/time/get_list/networktime_status
+i18n_title: time.widget.networktime_status_title
+icon: fa-laptop
+listing_link: /show/listing/time/time
+buttons:
+  - label: "0"
+    i18n_label: off
+    class: btn-danger
+  - label: "1"
+    i18n_label: on
+    class: btn-success

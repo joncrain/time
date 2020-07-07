@@ -1,0 +1,21 @@
+client_tabs:
+    time:
+        view: time_tab
+        i18n: time.title
+listings:
+    time:
+        view: time_listing
+        i18n: time.listing.title
+reports:
+    time:
+        view: time_report
+        i18n: time.report.title
+widgets:
+    time_timezone:
+        view: time_timezone_widget
+    time_timezone_graph:
+        view: time_timezone_graph_widget
+    time_networktime_status:
+        view: time_networktime_status_widget
+    time_autotimezone:
+        view: time_autotimezone_widget

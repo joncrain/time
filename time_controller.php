@@ -4,13 +4,11 @@
  * time class
  *
  * @package munkireport
- * @author joncrain
+ * @author 
  **/
 class Time_controller extends Module_controller
 {
-	
-    /*** Protect methods with auth! ****/
-    function __construct()
+	    function __construct()
     {
         // Store module path
         $this->module_path = dirname(__FILE__);
@@ -23,66 +21,26 @@ class Time_controller extends Module_controller
      **/
     public function get_data($serial_number = '')
     {
-        $obj = new View();
-
-        if (! $this->authorized()) {
-            $obj->view('json', array('msg' => 'Not authorized'));
-        }
-        $columns = [
-            'timezone',
-            'networktime_status',
-            'networktime_server',
-            'autotimezone',
-        ];
-
-        $out = time_model::select($columns)
+        jsonView(
+            Time_model::select('time.*')
             ->whereSerialNumber($serial_number)
             ->filter()
             ->limit(1)
             ->first()
-            ->toArray();
-
-        $obj->view('json', array('msg' => $out));
+            ->toArray()
+        );
     }
 
-    public function get_list()
+    public function get_list($column = '')
     {
-        $obj = new View();
-        $out = time_model::selectRaw('timezone AS label, count(*) AS count')
-            ->filter()
-            ->groupBy('timezone')
-            ->orderBy('count', 'desc')
-            ->get()
-            ->toArray();
-
-        $obj->view('json', array('msg' => $out));
+        jsonView(
+            Time_model::select($column . ' AS label')
+                ->selectRaw('count(*) AS count')
+                ->filter()
+                ->groupBy($column)
+                ->orderBy('count', 'desc')
+                ->get()
+                ->toArray()
+        );
     }
-
-    public function get_netlist()
-    {
-        $obj = new View();
-        $out = time_model::selectRaw('networktime_status, count(*) AS count')
-            ->filter()
-            ->groupBy('networktime_status')
-            ->orderBy('count', 'desc')
-            ->get()
-            ->toArray();
-
-        $obj->view('json', array('msg' => $out));
-    }
-
-    public function get_autolist()
-    {
-        $obj = new View();
-        $out = time_model::selectRaw('autotimezone, count(*) AS count')
-            ->filter()
-            ->groupBy('autotimezone')
-            ->orderBy('count', 'desc')
-            ->get()
-            ->toArray();
-
-        $obj->view('json', array('msg' => $out));
-    }
-
-
-} // END class time_controller
+} 

@@ -1,0 +1,7 @@
+type: bargraph
+widget_id: time-timezone-bargraph-widget
+api_url: /module/time/get_list/timezone
+i18n_title: time.widget.timezone_title
+icon: fa-laptop
+listing_link: /show/listing/time/time
+margin: {left: 150}
