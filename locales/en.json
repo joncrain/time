@@ -18,5 +18,9 @@
         "networktime_status_title": "Using Network Time",
         "networktime_server_title": "Network Time Servers",
         "autotimezone_title": "Using Automatic Time Zone"
-    }
+    },
+    "timezone": "Time Zone",
+    "networktime_status": "Network Time",
+    "networktime_server": "Network Time Servers",
+    "autotimezone": "Auto Time Zone"
 }
