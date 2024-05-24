@@ -19,3 +19,5 @@ widgets:
         view: time_networktime_status_widget
     time_autotimezone:
         view: time_autotimezone_widget
+    time_location_enabled:
+        view: time_location_enabled_widget

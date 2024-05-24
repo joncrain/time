@@ -1,4 +1,10 @@
 <div id="time-tab"></div>
+
+<div id="lister" style="font-size: large; float: right;">
+    <a href="/show/listing/time/time" title="List">
+        <i class="btn btn-default tab-btn fa fa-list"></i>
+    </a>
+</div>
 <h2 data-i18n="time.title"></h2>
 
 <div id="time-msg" data-i18n="listing.loading" class="col-lg-12 text-center"></div>
@@ -20,10 +26,10 @@ $(document).on('appReady', function(){
             for (var prop in data){
 
                 // Format Yes booleans
-                if((prop == 'autotimezone' || prop == 'networktime_status') && data[prop] == 1){
+                if((prop == 'autotimezone' || prop == 'networktime_status' || prop == 'location_enabled' ) && data[prop] == 1){
                    rows = rows + '<tr><th>'+i18n.t('time.'+prop)+'</th><td>'+i18n.t('yes')+'</td></tr>';
                 // Format No booleans
-                } else if((prop == 'autotimezone' || prop == 'networktime_status') && data[prop] == 0){
+                } else if((prop == 'autotimezone' || prop == 'networktime_status' || prop == 'location_enabled') && data[prop] == 0){
                    rows = rows + '<tr><th>'+i18n.t('time.'+prop)+'</th><td>'+i18n.t('no')+'</td></tr>';
 
                 } else {

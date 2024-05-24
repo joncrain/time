@@ -4,6 +4,7 @@ import subprocess
 import os
 import sys
 import platform
+from datetime import datetime
 
 from Foundation import CFPreferencesCopyAppValue
 
@@ -23,6 +24,15 @@ def systemsetup(command):
     setting = output[1].strip()
     return setting
 
+def get_location_enabled():
+    cmd = ["defaults", "read", "/var/db/locationd/Library/Preferences/ByHost/com.apple.locationd", "LocationServicesEnabled"]
+    try:
+        output = subprocess.check_output(cmd).strip()
+        location_enabled = output.decode("utf-8")
+    except subprocess.CalledProcessError:
+        location_enabled = "Error"
+    return location_enabled
+
 def main():
     """Main"""
     # Create cache dir if it does not exist
@@ -39,15 +49,22 @@ def main():
             networktime_server.append(line.split()[1])
     networktime_server = (', '.join(networktime_server))
     autotimezone = bool(get_pref_value('Active', 'com.apple.timezone.auto'))
+    
+    # Get current local time
+    cur_local_time = datetime.now().strftime("%H:%M:%S")
+
+    # Get location services enabled status
+    location_enabled = get_location_enabled()
 
     # Write memory results to cache
     output_file = os.path.join(cachedir, 'time.txt')
-    f = open(output_file, "w")
-    f.write("timezone %s %s\n" % (separator, timezone))
-    f.write("networktime_status %s %s\n" % (separator, int(networktime_status)))
-    f.write("networktime_server %s %s\n" % (separator, networktime_server))
-    f.write("autotimezone %s %s\n" % (separator, int(autotimezone)))
-    f.close()
-    
+    with open(output_file, "w") as f:
+        f.write("timezone %s %s\n" % (separator, timezone))
+        f.write("networktime_status %s %s\n" % (separator, int(networktime_status)))
+        f.write("networktime_server %s %s\n" % (separator, networktime_server))
+        f.write("autotimezone %s %s\n" % (separator, int(autotimezone)))
+        f.write("cur_local_time %s %s\n" % (separator, cur_local_time))
+        f.write("location_enabled %s %s\n" % (separator, location_enabled))
+
 if __name__ == "__main__":
     main()

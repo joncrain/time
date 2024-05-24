@@ -16,3 +16,6 @@ table:
         formatter: binaryYesNo
     -   column: time.networktime_server
         i18n_header: time.column.networktime_server
+    -   column: time.location_enabled
+        i18n_header: time.column.location_enabled
+        formatter: binaryYesNo
