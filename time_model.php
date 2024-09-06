@@ -14,6 +14,8 @@ class Time_model extends Eloquent
       'networktime_status',
       'networktime_server',
       'autotimezone',
+      'cur_local_time',
+      'location_enabled',
 
     ];
 }
