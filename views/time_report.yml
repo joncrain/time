@@ -1,7 +1,7 @@
 row1:
-    time_networktime_status: {  }
-    time_autotimezone: {  }
-    time_location_enabled: { }
+    time_networktime_status:
+    time_autotimezone:
+    time_location_enabled:
 row2:
-    time_timezone_graph: {  }
-    time_timezone: {  }
+    time_timezone_graph:
+    time_timezone:

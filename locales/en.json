@@ -6,7 +6,7 @@
         "networktime_server": "Network Time Servers",
         "autotimezone": "Auto Time Zone",
         "cur_local_time": "Local Time",
-        "location_enabled": "Location"
+        "location_enabled": "Location Enabled"
     },
     "listing": {
         "title": "Time"
@@ -21,12 +21,14 @@
         "networktime_server_title": "Network Time Servers",
         "autotimezone_title": "Using Automatic Time Zone",
         "cur_local_time": "Current Local Time",
-        "location_enabled": "Location Services"
+        "location_enabled": "Location Services Enabled"
     },
     "timezone": "Time Zone",
     "networktime_status": "Network Time",
     "networktime_server": "Network Time Servers",
     "autotimezone": "Auto Time Zone",
     "cur_local_time": "Current Local Time",
-    "location_enabled": "Location Services"
+    "location_enabled": "Location Services Enabled",
+    "automatic_time_only_enabled": "Automatic Time Only Enabled",
+    "automatic_time_zone_enabled": "Automatic Time Zone Enabled"
 }

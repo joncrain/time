@@ -2,7 +2,7 @@ type: button
 widget_id: time-autotimezone-button-widget
 api_url: /module/time/get_list/autotimezone
 i18n_title: time.widget.autotimezone_title
-icon: fa-laptop
+icon: fa-clock-o
 listing_link: /show/listing/time/time
 buttons:
   - label: "0"

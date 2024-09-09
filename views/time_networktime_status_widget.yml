@@ -2,7 +2,7 @@ type: button
 widget_id: time-networktime_status-button-widget
 api_url: /module/time/get_list/networktime_status
 i18n_title: time.widget.networktime_status_title
-icon: fa-laptop
+icon: fa-sitemap
 listing_link: /show/listing/time/time
 buttons:
   - label: "0"

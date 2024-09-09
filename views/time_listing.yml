@@ -1,4 +1,5 @@
-i18n_title: time.listing.title
+i18n_title: time.report.title
+not_null_column: timezone
 table:
     -   column: machine.computer_name
         i18n_header: listing.computername
@@ -18,4 +19,10 @@ table:
         i18n_header: time.column.networktime_server
     -   column: time.location_enabled
         i18n_header: time.column.location_enabled
+        formatter: binaryYesNo
+    -   column: time.automatic_time_only_enabled
+        i18n_header: time.automatic_time_only_enabled
+        formatter: binaryYesNo
+    -   column: time.automatic_time_zone_enabled
+        i18n_header: time.automatic_time_zone_enabled
         formatter: binaryYesNo

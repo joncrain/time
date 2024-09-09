@@ -16,6 +16,7 @@ class Time_model extends Eloquent
       'autotimezone',
       'cur_local_time',
       'location_enabled',
-
+      'automatic_time_only_enabled',
+      'automatic_time_zone_enabled',
     ];
 }

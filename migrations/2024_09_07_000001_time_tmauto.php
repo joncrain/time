@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class TimeAdd extends Migration
+class TimeTmauto extends Migration
 {
     private $tableName = 'time';
 
@@ -13,14 +13,14 @@ class TimeAdd extends Migration
         $capsule = new Capsule();
 
         $capsule::schema()->table($this->tableName, function (Blueprint $table) {
-            $table->string('cur_local_time')->nullable();
-            $table->boolean('location_enabled')->nullable();
+            $table->boolean('automatic_time_only_enabled')->nullable();
+            $table->boolean('automatic_time_zone_enabled')->nullable();
         });
 
         // Create indexes
         $capsule::schema()->table($this->tableName, function (Blueprint $table) {
-            $table->index('cur_local_time');
-            $table->index('location_enabled');
+            $table->index('automatic_time_only_enabled');
+            $table->index('automatic_time_zone_enabled');
         });
     }
 
@@ -28,8 +28,8 @@ class TimeAdd extends Migration
     {
         $capsule = new Capsule();
         $capsule::schema()->table($this->tableName, function (Blueprint $table) {
-            $table->dropColumn('cur_local_time');
-            $table->dropColumn('location_enabled');
+            $table->dropColumn('automatic_time_only_enabled');
+            $table->dropColumn('automatic_time_zone_enabled');
         });
     }
 }
