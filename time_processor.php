@@ -26,7 +26,7 @@ class Time_processor extends Processor
         Time_model::updateOrCreate(
             ['serial_number' => $this->serial_number], $modelData
         );
-        
+
         return $this;
     }
 }

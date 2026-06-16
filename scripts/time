@@ -36,16 +36,24 @@ def read_defaults(domain, key):
     except subprocess.CalledProcessError:
         return ""
 
+def get_timeserver():
+    cmd = ["/usr/sbin/systemsetup", "-getnetworktimeserver"]
+    try:
+        proc = subprocess.Popen(cmd, shell=False, bufsize=-1,
+                                stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        (output, unused_error) = proc.communicate()
+        output = output.decode().replace("Network Time Server: ", "").strip()
+        return output
+    except subprocess.CalledProcessError:
+        return ""
+
 def main():
     """Main"""
 
     timezone = systemsetup('gettimezone')
     networktime_status = bool(systemsetup('getusingnetworktime'))
-    networktime_server = []
-    with open('/etc/ntp.conf', 'r') as reader:
-        for line in reader.readlines():
-            networktime_server.append(line.split()[1])
-    networktime_server = (', '.join(networktime_server))
+    networktime_server = systemsetup('getnetworktimeserver')
+    networktime_server = get_timeserver()
     autotimezone = bool(get_pref_value('Active', 'com.apple.timezone.auto'))
 
     # Check if we're setting the preferences by profile or not
